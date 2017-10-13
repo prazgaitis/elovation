@@ -3,11 +3,12 @@ require "spec_helper"
 describe Player do
   describe "as_json" do
     it "returns the json representation of the player" do
-      player = FactoryGirl.build(:player, name: "John Doe", email: "foo@example.com")
+      player = FactoryGirl.build(:player, name: "John Doe", email: "foo@example.com", slack_username: "@slacker")
 
       player.as_json.should == {
         name: "John Doe",
-        email: "foo@example.com"
+        email: "foo@example.com",
+        slack_username: "@slacker"
       }
     end
   end

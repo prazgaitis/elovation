@@ -11,7 +11,7 @@ describe PlayersController, :type => :controller do
 
   describe "create" do
     it "creates a player and redirects to dashboard" do
-      post :create, params: {player: {name: "Drew", email: "drew@example.com"}}
+      post :create, params: {player: {name: "Drew", email: "drew@example.com", slack_username: "@drew"}}
 
       player = Player.where(name: "Drew", email: "drew@example.com").first
 

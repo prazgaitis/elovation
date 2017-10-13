@@ -27,11 +27,13 @@ class Player < ActiveRecord::Base
 
   validates :name, uniqueness: true, presence: true
   validates :email, allow_blank: true, format: /@/
+  validates :slack_username, uniqueness: true, presence: true, format: { with: /[@]\S*/, message: "- Make sure you include the @ sign!" }
 
   def as_json
     {
       name: name,
-      email: email
+      email: email,
+      slack_username: slack_username
     }
   end
 
